@@ -8,11 +8,17 @@ function PrivateRoute ({ component, ...rest }) {
   if (!user) {
     return <Redirect to="/login" />
   }
-  return <Route {...rest} component={component}/>
+
+  return (
+    <>
+
+      <Route {...rest} component={component} />
+    </>
+  )
 }
 
 export default PrivateRoute
 
 PrivateRoute.propTypes = {
-  location: PropTypes.oneOfType([PropTypes.func, PropTypes.element])
+  component: PropTypes.oneOfType([PropTypes.func, PropTypes.element])
 }

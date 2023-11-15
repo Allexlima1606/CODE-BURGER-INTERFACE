@@ -16,8 +16,8 @@ import {
   ContainerItens,
   Label,
   Input,
-  ErrorMessage,
-  SignInLink
+  SignInLink,
+  ErrorMessage
 } from './styles'
 
 export function Login () {
@@ -26,11 +26,11 @@ export function Login () {
 
   const schema = Yup.object().shape({
     email: Yup.string()
-      .email('Digite um email valido')
-      .required('O email é obrigatorio'),
+      .email('Digite um e-mail válido')
+      .required('O e-mail é obrigatório'),
     password: Yup.string()
-      .required('a senha é obrigatoria')
-      .min(6, 'A senha deve ter 6 digitos')
+      .required('A senha é obrigatória')
+      .min(6, 'A senha deve ter pelo 6 digítos')
   })
 
   const {
@@ -48,9 +48,9 @@ export function Login () {
         password: clientData.password
       }),
       {
-        pending: 'Carregando...',
-        success: 'Login realizado com sucesso!',
-        error: 'Verifique seu login'
+        pending: 'Verificando seus dados',
+        success: 'Seja bem-vindo(a)',
+        error: 'Verifique seu e-mail e senha 🤯'
       }
     )
 
@@ -65,30 +65,35 @@ export function Login () {
     <Container>
       <LoginImage src={LoginImg} alt="login-image" />
       <ContainerItens>
-        <img src={Logo} alt="logo" />
+        <img src={Logo} alt="logo-code-burger" />
         <h1>Login</h1>
 
         <form noValidate onSubmit={handleSubmit(onSubmit)}>
           <Label>Email</Label>
-          <Input type='email'
+          <Input
+            type="email"
             {...register('email')}
             error={errors.email?.message}
           />
           <ErrorMessage>{errors.email?.message}</ErrorMessage>
 
           <Label>Senha</Label>
-          <Input type='password'
+          <Input
+            type="password"
             {...register('password')}
-            errors={errors.password?.message}
+            error={errors.password?.message}
           />
           <ErrorMessage>{errors.password?.message}</ErrorMessage>
 
-          <Button type="submit" style={{ marginTop: 75, marginBotton: 25 }} > Sign In </Button>
+          <Button type="submit" style={{ marginTop: 75, marginBottom: 25 }}>
+            Sign In
+          </Button>
         </form>
-
         <SignInLink>
-          Não possui conta ?{' '}
-          <Link style={{ color: 'white' }} to="/cadastro"> Sign Up </Link>
+          Não possui conta?{' '}
+          <Link style={{ color: 'white' }} to="/cadastro">
+            Sign Up
+          </Link>
         </SignInLink>
       </ContainerItens>
     </Container>

@@ -13,11 +13,16 @@ import {
   ProductsContainer
 } from './styles'
 
-export function Products () {
+export function Products ({ location: { state } }) {
+  let categoryId = 0
+  if (state?.categoryId) {
+    categoryId = state.categoryId
+  }
+
   const [categories, setCategories] = useState([])
   const [products, setProducts] = useState([])
   const [filteredProducts, setFilteredProducts] = useState([])
-  const [activeCategory, setActiveCategory] = useState([0])
+  const [activeCategory, setActiveCategory] = useState(categoryId)
 
   useEffect(() => {
     async function loadCategories () {
@@ -56,12 +61,12 @@ export function Products () {
 
   return (
     <Container>
-      <ProductsImg src={ProductsLogo} alt="logo do Home" />
+      <ProductsImg src={ProductsLogo} alt="logo da home" />
       <CategoriesMenu>
         {categories &&
           categories.map(category => (
             <CategoryButton
-              type='button'
+              type="button"
               key={category.id}
               isActiveCategory={activeCategory === category.id}
               onClick={() => {
