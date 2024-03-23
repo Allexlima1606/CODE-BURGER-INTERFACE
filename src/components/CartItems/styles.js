@@ -1,7 +1,61 @@
 import styled from 'styled-components'
 
-export const Container = styled.div``
+export const Container = styled.div`
+  background-color: #ffffff;
+  box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.03);
+  border-radius: 20px;
+  padding: 10px;
+  width: max-content;
+`
 
-export const header = styled.div``
+export const Header = styled.div`
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  padding: 0%;
+  border-bottom: 1px solid #b5b5b5;
+  p {
+    font-size: 16px;
+    color: #b5b5b5;
+  }
+`
 
-export const body = styled.div``
+export const Body = styled.div`
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  padding: 10px;
+  width: max-content;
+  grid-gap: 10px 15px;
+
+  img {
+    border-radius: 10px;
+    width: 120px;
+  }
+
+  p {
+    font-size: 20px;
+    color: #000;
+    margin-top: 10px;
+  }
+
+  .quantity-container {
+    display: flex;
+    gap: 20px;
+
+    button {
+      height: 30px;
+      background: transparent;
+      border: none;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    p {
+      margin-top: 8px;
+    }
+  }
+`
+export const EmptyCart = styled.p`
+  padding: 20px;
+  font-weight: bold;
+  text-align: center;
+`

@@ -13,7 +13,7 @@ import {
   ProductsContainer
 } from './styles'
 
-export function Products ({ location: { state } }) {
+export function Products({ location: { state } }) {
   let categoryId = 0
   if (state?.categoryId) {
     categoryId = state.categoryId
@@ -25,7 +25,7 @@ export function Products ({ location: { state } }) {
   const [activeCategory, setActiveCategory] = useState(categoryId)
 
   useEffect(() => {
-    async function loadCategories () {
+    async function loadCategories() {
       const { data } = await api.get('categories')
 
       const newCategories = [{ id: 0, name: 'Todas' }, ...data]
@@ -33,7 +33,7 @@ export function Products ({ location: { state } }) {
       setCategories(newCategories)
     }
 
-    async function loadProducts () {
+    async function loadProducts() {
       const { data: allProducts } = await api.get('products')
 
       const newProducts = allProducts.map(product => {

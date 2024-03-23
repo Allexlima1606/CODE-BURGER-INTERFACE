@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import Carousel from 'react-elastic-carousel'
-
+import { useHistory } from 'react-router-dom'
 import Category from '../../assets/Category.png'
 import api from '../../services/api'
 import { Container, CategoryImg, ContainerItems, Image, Button } from './styles'
 
-export function CategoryCarousel () {
+export function CategoryCarousel() {
   const [categories, setCategories] = useState([])
 
   useEffect(() => {
-    async function loadCategories () {
+    async function loadCategories() {
       const { data } = await api.get('categories')
 
       setCategories(data)

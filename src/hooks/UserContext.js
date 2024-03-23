@@ -9,12 +9,16 @@ export const UserProvider = ({ children }) => {
   const putUserData = async userInfo => {
     setUserData(userInfo)
 
-    await localStorage.setItem('codeburger:useData', JSON.stringify(userInfo))
+    await localStorage.setItem('codeburger:userData', JSON.stringify(userInfo))
+  }
+
+  const logout = async () => {
+    await localStorage.removeItem('codeburger:userData')
   }
 
   useEffect(() => {
     const loadUserData = async () => {
-      const clientInfo = await localStorage.getItem('codeburger:useData')
+      const clientInfo = await localStorage.getItem('codeburger:userData')
 
       if (clientInfo) {
         setUserData(JSON.parse(clientInfo))
@@ -25,9 +29,9 @@ export const UserProvider = ({ children }) => {
   }, [])
 
   return (
-        <UserContext.Provider value={{ putUserData, userData }}>
-            {children}
-        </UserContext.Provider>
+    <UserContext.Provider value={{ putUserData, userData, logout }}>
+      {children}
+    </UserContext.Provider>
   )
 }
 
@@ -35,8 +39,9 @@ export const useUser = () => {
   const context = useContext(UserContext)
 
   if (!context) {
-    throw new Error('useUser must be used within UserContext')
+    throw new Error('useUser must be used with UserContext')
   }
+
   return context
 }
 

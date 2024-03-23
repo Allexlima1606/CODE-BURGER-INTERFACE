@@ -6,7 +6,7 @@ import { useCart } from '../../hooks/CartContext'
 import { Button } from '../Button'
 import { Container, Image, ProductName, ProductPrice } from './styles'
 
-export function CardProduct ({ product }) {
+export function CardProduct({ product }) {
   const { putProductInCart } = useCart()
   const { push } = useHistory()
 
