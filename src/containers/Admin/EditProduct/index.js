@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react'
-import ReactSelect from 'react-select'
-import { useForm, Controller } from 'react-hook-form'
-
 import { yupResolver } from '@hookform/resolvers/yup'
 import CloudUploadIcon from '@mui/icons-material/CloudUpload'
+import React, { useEffect, useState } from 'react'
+import { useForm, Controller } from 'react-hook-form'
+import { useHistory } from 'react-router-dom'
+import ReactSelect from 'react-select'
+import { toast } from 'react-toastify'
 import * as Yup from 'yup'
 
+import { ErrorMessage } from '../../../components'
 import api from '../../../services/api'
 import {
   Container,
@@ -15,10 +17,6 @@ import {
   LabelUpload,
   ContainerInput
 } from './styles'
-
-import { ErrorMessage } from '../../../components'
-import { toast } from 'react-toastify'
-import { useHistory } from 'react-router-dom'
 
 export function EditProduct() {
   const [fileName, setFileName] = useState(null)
@@ -57,7 +55,7 @@ export function EditProduct() {
     productDataformData.append('offer', data.offer)
 
     await toast.promise(
-      api.post(`products/${product.id}`, productDataformData),
+      api.put(`products/${product.id}`, productDataformData),
       {
         pending: 'Editando novo produto...',
         success: 'Produto editado com sucesso',

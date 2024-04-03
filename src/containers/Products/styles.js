@@ -33,4 +33,8 @@ export const ProductsContainer = styled.div`
   padding: 40px;
   justify-items: center;
   margin-top: 20px;
+
+  .hXVFOX {
+    width: 150px;
+  }
 `

@@ -1,16 +1,15 @@
-import React, { useEffect, useState } from 'react'
-import ReactSelect from 'react-select'
-import { useForm, Controller } from 'react-hook-form'
-
 import { yupResolver } from '@hookform/resolvers/yup'
 import CloudUploadIcon from '@mui/icons-material/CloudUpload'
+import React, { useEffect, useState } from 'react'
+import { useForm, Controller } from 'react-hook-form'
+import { useHistory } from 'react-router-dom'
+import ReactSelect from 'react-select'
+import { toast } from 'react-toastify'
 import * as Yup from 'yup'
 
+import { ErrorMessage } from '../../../components'
 import api from '../../../services/api'
 import { Container, Label, Input, ButtonStyles, LabelUpload } from './styles'
-import { ErrorMessage } from '../../../components'
-import { toast } from 'react-toastify'
-import { useHistory } from 'react-router-dom'
 
 export function NewProduct() {
   const [fileName, setFileName] = useState(null)

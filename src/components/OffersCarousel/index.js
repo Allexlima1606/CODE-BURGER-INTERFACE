@@ -20,7 +20,7 @@ export function OffersCarousel() {
       const onlyOffers = data
         .filter(product => product.offer)
         .map(product => {
-          return { ...product, formatedPrice: formatCurrency(product.price) }
+          return { ...product, fomatedPrice: formatCurrency(product.price) }
         })
 
       setOffers(onlyOffers)
@@ -29,7 +29,7 @@ export function OffersCarousel() {
     loadOffers()
   }, [])
 
-  const breakPoints = [
+  const brakePoints = [
     { width: 1, itemsToShow: 1 },
     { width: 400, itemsToShow: 2 },
     { width: 600, itemsToShow: 3 },
@@ -39,19 +39,18 @@ export function OffersCarousel() {
 
   return (
     <Container>
-      <CategoryImg src={Offers} alt="logo da Oferta" />
-
+      <CategoryImg src={Offers} alt="logo do pproduto" />
       <Carousel
-        itemsToShow={5}
+        itemsToShow={4}
         style={{ width: '90%' }}
-        breakPoints={breakPoints}
+        brakePoints={brakePoints}
       >
         {offers &&
           offers.map(product => (
             <ContainerItems key={product.id}>
-              <Image src={product.url} alt="foto do produto" />
+              <Image src={product.url} />
               <p>{product.name}</p>
-              <p>{product.formatedPrice}</p>
+              <p>{product.fomatedPrice}</p>
               <Button
                 onClick={() => {
                   putProductInCart(product)

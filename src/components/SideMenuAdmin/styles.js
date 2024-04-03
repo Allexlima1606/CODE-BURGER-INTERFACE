@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { Style } from '@mui/icons-material'
 
 export const Container = styled.div`
   background: #3c3c3c;

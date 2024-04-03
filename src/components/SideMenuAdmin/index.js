@@ -1,12 +1,11 @@
 /* eslint-disable indent */
+import LogoutIcon from '@mui/icons-material/Logout'
+import PropTypes from 'prop-types'
 import React from 'react'
 
-import PropTypes from 'prop-types'
-import LogoutIcon from '@mui/icons-material/Logout'
-import { Container, ItemContainer, ListLink } from './styles'
 import { useUser } from '../../hooks/UserContext'
 import listLinks from './menu-list'
-
+import { Container, ItemContainer, ListLink } from './styles'
 export function SideMenuAdmin({ path }) {
   const { logout } = useUser()
   return (

@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
-import { Container, ContainerItems } from './styles'
-import paths from '../../constants/paths'
-import ListProducts from './ListProducts'
-import Orders from './Orders'
-import NewProduct from './NewProduct'
 import { SideMenuAdmin } from '../../components'
+import paths from '../../constants/paths'
 import EditProduct from './EditProduct'
+import ListProducts from './ListProducts'
+import NewProduct from './NewProduct'
+import Orders from './Orders'
+import { Container, ContainerItems } from './styles'
 
 export function Admin({ match: { path } }) {
   return (

@@ -1,12 +1,12 @@
 /* eslint-disable space-before-function-paren */
 import React, { useState, useEffect } from 'react'
+import { toast } from 'react-toastify'
 
 import { useCart } from '../../hooks/CartContext'
+import api from '../../services/api'
+import formatCurrency from '../../utils/formatCurrency'
 import { Button } from '../Button'
 import { Container } from './styles'
-import formatCurrency from '../../utils/formatCurrency'
-import api from '../../services/api'
-import { toast } from 'react-toastify'
 
 export function CartResume() {
   const [finalPrice, setFinalPrice] = useState(0)

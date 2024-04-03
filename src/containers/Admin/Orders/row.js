@@ -1,6 +1,3 @@
-import PropTypes from 'prop-types'
-import React, { useState, useEffect } from 'react'
-
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
 import Box from '@mui/material/Box'
@@ -12,6 +9,8 @@ import TableCell from '@mui/material/TableCell'
 import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
 import Typography from '@mui/material/Typography'
+import PropTypes from 'prop-types'
+import React from 'react'
 
 import api from '../../../services/api'
 import status from './order-status'

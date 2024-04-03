@@ -1,9 +1,9 @@
 import React from 'react'
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom'
 
+import paths from '../constants/paths'
 import { Home, Products, Register, Login, Cart, Admin } from '../containers'
 import PrivateRoute from './private-route'
-import paths from '../constants/paths'
 
 function Routes() {
   return (

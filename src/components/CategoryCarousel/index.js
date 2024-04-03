@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Carousel from 'react-elastic-carousel'
-import { useHistory } from 'react-router-dom'
+
 import Category from '../../assets/Category.png'
 import api from '../../services/api'
 import { Container, CategoryImg, ContainerItems, Image, Button } from './styles'
@@ -28,17 +28,17 @@ export function CategoryCarousel() {
 
   return (
     <Container>
-      <CategoryImg src={Category} alt="logo da categoria" />
+      <CategoryImg src={Category} alt="logo da Categoria" />
 
       <Carousel
-        itemsToShow={5}
+        itemsToShow={4}
         style={{ width: '90%' }}
         breakPoints={breakPoints}
       >
         {categories &&
           categories.map(category => (
             <ContainerItems key={category.id}>
-              <Image src={category.url} alt="foto da categoria" />
+              <Image src={category.url} />
               <Button
                 to={{
                   pathname: '/produtos',
